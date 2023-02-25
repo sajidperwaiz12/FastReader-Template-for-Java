@@ -105,12 +105,24 @@ public class Main {
             return arr;
         }
 
+        // for taking char array input
          char[] nextCharLine() throws IOException {
             int size = in.nextInt();
             char[] arr = new char[size];
             String[] nums = br.readLine().split("\\s+");
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = nums[i].charAt(0);
+            }
+            return arr;
+        }
+
+        // for taking string array input
+        String[] nextStringLine() throws IOException {
+            int size = in.nextInt();
+            String[] arr = new String[size];
+            String[] nums = br.readLine().split("\\s+");
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = nums[i];
             }
             return arr;
         }
