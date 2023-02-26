@@ -63,9 +63,8 @@ public class Main {
 
         // for taking integer array input
         int[] nextIntLine() throws IOException {
-            int size = in.nextInt();
-            int[] arr = new int[size];
             String[] nums = br.readLine().split("\\s+");
+            int[] arr = new int[nums.length];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = Integer.parseInt(nums[i]);
             }
@@ -74,9 +73,8 @@ public class Main {
 
         // for taking long array input
         long[] nextLongLine() throws IOException {
-            int size = in.nextInt();
-            long[] arr = new long[size];
             String[] nums = br.readLine().split("\\s+");
+            long[] arr = new long[nums.length];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = Long.parseLong(nums[i]);
             }
@@ -85,9 +83,8 @@ public class Main {
 
         // for taking float array input
         float[] nextFloatLine() throws IOException {
-            int size = in.nextInt();
-            float[] arr = new float[size];
             String[] nums = br.readLine().split("\\s+");
+            float[] arr = new float[nums.length];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = Float.parseFloat(nums[i]);
             }
@@ -96,9 +93,8 @@ public class Main {
 
         // for taking double array input
         double[] nextDoubleLine() throws IOException {
-            int size = in.nextInt();
-            double[] arr = new double[size];
             String[] nums = br.readLine().split("\\s+");
+            double[] arr = new double[nums.length];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = Double.parseDouble(nums[i]);
             }
@@ -107,9 +103,8 @@ public class Main {
 
         // for taking char array input
          char[] nextCharLine() throws IOException {
-            int size = in.nextInt();
-            char[] arr = new char[size];
             String[] nums = br.readLine().split("\\s+");
+            char[] arr = new char[nums.length];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = nums[i].charAt(0);
             }
@@ -118,9 +113,8 @@ public class Main {
 
         // for taking string array input
         String[] nextStringLine() throws IOException {
-            int size = in.nextInt();
-            String[] arr = new String[size];
             String[] nums = br.readLine().split("\\s+");
+            String[] arr = new String[nums.length];
             for (int i = 0; i < arr.length; i++) {
                 arr[i] = nums[i];
             }
