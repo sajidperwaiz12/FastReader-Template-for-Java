@@ -1,59 +1,47 @@
 // Importing java.io.package for using BufferedReader class and handling IOException
 import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
     // FastReader class for taking input
     static class FastReader {
         BufferedReader br;
+        // Used for separating string input with space
+        StringTokenizer st;
 
-        // It will create the object of BufferedReader class
-        public FastReader() {
+        // This will create an object of BufferedReader class
+        public FastReader()
+        {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        // for taking input of type integer
-        int nextInt() throws IOException {
-            return Integer.parseInt(br.readLine());
+        String next()
+        {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
         }
 
-        // for taking input of type long
-        long nextLong() throws IOException {
-            return Long.parseLong(br.readLine());
-        }
+        int nextInt() { return Integer.parseInt(next()); }
 
-        // for taking input of type double
-        double nextDouble() throws IOException {
-            return Double.parseDouble(br.readLine());
-        }
+        byte nextByte() { return Byte.parseByte(next()); }
 
-        // for taking input of type byte
-        byte nextByte() throws IOException {
-            return Byte.parseByte(br.readLine());
-        }
+        short nextShort() { return Short.parseShort(next()); }
 
-        // for taking input of type short
-        short nextShort() throws IOException {
-            return Short.parseShort(br.readLine());
-        }
+        long nextLong() { return Long.parseLong(next()); }
 
-        // for taking input of type float
-        float nextFloat() throws IOException {
-            return Float.parseFloat(br.readLine());
-        }
+        double nextDouble() { return Double.parseDouble(next()); }
 
-        // for taking input of type character
-        char nextChar() throws IOException {
-            return (char) br.readLine().charAt(0);
-        }
+        float nextFloat() { return Float.parseFloat(next()); }
 
-        // for taking input of type string
-        String nextString() throws IOException {
-            return br.readLine();
-        }
-
-        // for taking input of type boolean
-        boolean nextBoolean() throws IOException {
-            String str = in.nextString();
+        boolean nextBoolean() {
+            String str = in.next();
             if (str.matches("true")) {
                 return true;
             } else {
@@ -61,64 +49,16 @@ public class Main {
             }
         }
 
-        // for taking integer array input
-        int[] nextIntLine() throws IOException {
-            String[] nums = br.readLine().split("\\s+");
-            int[] arr = new int[nums.length];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = Integer.parseInt(nums[i]);
+        String nextLine()
+        {
+            String str = "";
+            try {
+                str = br.readLine();
             }
-            return arr;
-        }
-
-        // for taking long array input
-        long[] nextLongLine() throws IOException {
-            String[] nums = br.readLine().split("\\s+");
-            long[] arr = new long[nums.length];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = Long.parseLong(nums[i]);
+            catch (IOException e) {
+                e.printStackTrace();
             }
-            return arr;
-        }
-
-        // for taking float array input
-        float[] nextFloatLine() throws IOException {
-            String[] nums = br.readLine().split("\\s+");
-            float[] arr = new float[nums.length];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = Float.parseFloat(nums[i]);
-            }
-            return arr;
-        }
-
-        // for taking double array input
-        double[] nextDoubleLine() throws IOException {
-            String[] nums = br.readLine().split("\\s+");
-            double[] arr = new double[nums.length];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = Double.parseDouble(nums[i]);
-            }
-            return arr;
-        }
-
-        // for taking char array input
-         char[] nextCharLine() throws IOException {
-            String[] nums = br.readLine().split("\\s+");
-            char[] arr = new char[nums.length];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = nums[i].charAt(0);
-            }
-            return arr;
-        }
-
-        // for taking string array input
-        String[] nextStringLine() throws IOException {
-            String[] nums = br.readLine().split("\\s+");
-            String[] arr = new String[nums.length];
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = nums[i];
-            }
-            return arr;
+            return str;
         }
     }
 
@@ -155,7 +95,7 @@ public class Main {
     static FastWriter out = new FastWriter();
     public static void main(String[] args) throws IOException {
         // Program to take input of a student name, roll, and monthly pocket money (in decimal)
-        String name = in.nextString();
+        String name = in.nextLine();
         int roll = in.nextInt();
         double pocketMoney = in.nextDouble();
         out.println("Name of the student: " + name);
