@@ -72,19 +72,31 @@ public class Main {
         }
 
         // for printing object in same line
-        public void print(Object object) throws IOException {
-            bw.append("" + object);
+        public void print(Object object) {
+            try {
+                bw.append("" + object);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         // for printing object in different line
-        public void println(Object object) throws IOException {
+        public void println(Object object) {
             print(object);
-            bw.append("\n");
+            try {
+                bw.append("\n");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         // Make sure to close BufferedWriter object
-        public void close() throws IOException {
-            bw.close();
+        public void close() {
+            try {
+                bw.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -93,7 +105,7 @@ public class Main {
 
     // Method to create object of FastWriter class
     static FastWriter out = new FastWriter();
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // Program to take input of a student name, roll, and monthly pocket money (in decimal)
         String name = in.nextLine();
         int roll = in.nextInt();
