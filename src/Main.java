@@ -98,6 +98,15 @@ public class Main {
                 throw new RuntimeException(e);
             }
         }
+
+        // For flushing previous buffer -- more efficient, use this instead of close
+        public void flush() {
+            try {
+                bw.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     // Method to create object of FastReader class
@@ -113,6 +122,6 @@ public class Main {
         out.println("Name of the student: " + name);
         out.println("His roll no: " + roll);
         out.println("His pocket money: " + pocketMoney);
-        out.close(); // Remember to close writer class after printing all the inputs
+        out.flush(); // Remember to close writer class after printing all the inputs
     }
 }
